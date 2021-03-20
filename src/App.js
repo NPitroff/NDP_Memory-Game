@@ -8,26 +8,30 @@ import cards from "./data";
 import cardBack from "./images/CardBack.jpg";
 
 function App() {
-  return (
-  <div className="App border my-5">
-    <div className="container">
-      <div className="row">
-        {/* {1} */}
-        <div className="col-3 my-1">
-          {/* {2} */}
-          <img alt="Back of a card"
-            className="mx-auto"
-            src={cardBack}
-            height="100%"
-            width="100%"
-            key="back"
-            />
-            {/* 3 */}
-        </div>
+  let cardsGrid = cards.map((card) => {
+    return(
+      <div className="col-3 my-1">
+        <img
+        alt="back of card"
+          className="mx-auto"
+          src={cardBack}
+          height="100%"
+          width="100%"
+          key="back"
+          />
       </div>
-    </div>
-  </div>
-  );
+    );
+  })
+    return (
+      <div className="App border my-5">
+        <div className="container">
+          <div className="row">
+            {cardsGrid}
+              {/* 3 */}
+            </div>
+          </div>
+        </div>
+    );
 }
 
 export default App;
