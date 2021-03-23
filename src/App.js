@@ -13,7 +13,7 @@ import Card from "./Components/Card";
 import "./App.css";
 
 const App = () => {
-  const [cards, setCards] = useState(shuffle([...allCards, ...allCards])));
+  const [cards, setCards] = useState(shuffle([...allCards, ...allCards]));
 
 
   const cardsGrid = cards.map((card, idx) => (
