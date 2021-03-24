@@ -29,16 +29,42 @@ useEffect(() => {
 
 }, [difficulty]);
 
+// define a flipped card
+let flippedCards = [];
+const changeFlipped = anArray => {
+    flippedCards = anArray;
+};
+
+// define an unflipped card
+const unflipCards = (unflip1, unflip2) => {
+    setTimeout(() => {
+        unflip1(false);
+        unflip2(false);
+    }, 1000);
+};
+
+// if statement to match cards in the new array, if not matched, then flip back down
+const checkFlipped = flippedObject => {
+    changeFlipped([...flippedCards, flippedObject]);
+
+    if (flippedCards.length ===2) {
+        if(flippedCards[0].id !== flippedCards[1].id) {
+            unflipCards(flippedCards[0].changeFlip, flippedCards[1].changeFlip);
+        }
+        changeFlipped([]);
+    }
+};
+
 //Map through the card array and place the images in the card component
-const cardsGrid = cards.map((card, idx) => (
-    <Card key={`${card.id}-${idx}`} card={card} />
+const cardsList = cards.map((card, idx) => (
+    <Card key={`${card.id}-${idx}`} card={card} checkFlipped={checkFlipped} />
 ));
 
 return (
     <div className="container">
         <div className="row">
             <div className="col-9">
-                <div className="row border">{cardsGrid}</div>
+                <div className="row border">{cardsList}</div>
             </div>
         </div>
     </div>
