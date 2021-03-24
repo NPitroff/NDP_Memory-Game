@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 // Card flipping component downlaoded with Yarn
 import ReactCardFlip from "react-card-flip";
-
 // Back of card
 import cardBack from "../images/CardBack.jpg";
 
@@ -10,7 +9,10 @@ const Card = ({ card, checkFlipped }) => {
     const [flipped, changeFlip] = useState(false);
 //function to flip the card
     const handleFlip =() => {
-        changeFlip(!flipped);
+        if(flipped !== true){
+            changeFlip(true);
+            checkFlipped({ id: card.id, changeFlip: changeFlip });
+        }
     };
 
     return (
