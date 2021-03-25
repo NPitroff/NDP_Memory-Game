@@ -8,8 +8,9 @@ import { shuffle } from "../utils";
 
 // Components
 import Card from "./Card";
+import Score from "./Score";
 
-const Game = ({ difficulty }) => {
+const Game = ({ mode, difficulty }) => {
     const [cards, setCards] = useState([]);
 
     //function to duplicate card images to match them up
@@ -29,6 +30,15 @@ useEffect(() => {
 
 }, [difficulty]);
 
+//Keep track of player scores ([playerOneScore, playerTwoScore])
+const [score, setScore] = useState([0, 0]);
+
+//Track player turn
+const [playerTurn, setPlayerTurn] = useState(true);
+
+//Keeps track of failed flips in single player mode
+const [failedFlips, increaseFailed] = useState(0);
+
 // define a flipped card
 let flippedCards = [];
 const changeFlipped = anArray => {
@@ -47,9 +57,24 @@ const unflipCards = (unflip1, unflip2) => {
 const checkFlipped = flippedObject => {
     changeFlipped([...flippedCards, flippedObject]);
 
-    if (flippedCards.length ===2) {
+    if (flippedCards.length === 2) {
         if(flippedCards[0].id !== flippedCards[1].id) {
             unflipCards(flippedCards[0].changeFlip, flippedCards[1].changeFlip);
+
+            // Adds to the failed flipped score
+            increaseFailed(failedFlips + 1);
+
+            // For muliplayer, if cards dont match, player gets switched
+            setPlayerTurn(!playerTurn);
+        } else {
+            if (mode === "multi") {
+                if (playerTurn) {
+                    //If multiplayer, increase score of a correct guess for the active player
+                    setScore([(score[0] =+ 1), score[1]]);
+                } else {
+                    setScore([score[0], (score[1] += 1)]);
+                }
+            }
         }
         changeFlipped([]);
     }
@@ -66,6 +91,13 @@ return (
             <div className="col-9">
                 <div className="row border">{cardsList}</div>
             </div>
+            {/* Component to diplay score */}
+            <Score 
+                mode={mode}
+                score={score}
+                failedFlips={failedFlips}
+                playerTurn={playerTurn}
+                />
         </div>
     </div>
 );
