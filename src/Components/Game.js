@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import allCards from "../data";
 
 //Utils 
-import { shuffle } from "./utils";
+import { shuffle } from "../utils";
 
 // Components
 import Card from "./Card";
