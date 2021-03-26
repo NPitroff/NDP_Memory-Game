@@ -70,7 +70,7 @@ const checkFlipped = flippedObject => {
             if (mode === "multi") {
                 if (playerTurn) {
                     //If multiplayer, increase score of a correct guess for the active player
-                    setScore([(score[0] =+ 1), score[1]]);
+                    setScore([(score[0] += 1), score[1]]);
                 } else {
                     setScore([score[0], (score[1] += 1)]);
                 }

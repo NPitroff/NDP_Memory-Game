@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 // Card flipping component downlaoded with Yarn
 import ReactCardFlip from "react-card-flip";
-// Back of card
-import cardBack from "../images/CardBack.jpg";
+// Back of Card
+import mosquito from "../images/Mosquito.jfif";
+// import card styling
+import "../index.css";
 
 // useState hook to "flip" the cards
 const Card = ({ card, checkFlipped }) => {
@@ -21,7 +23,7 @@ const Card = ({ card, checkFlipped }) => {
             <img 
                 alt="The back of the card"
                 className="mx-auto"
-                src={cardBack}
+                src={mosquito}
                 height="100%"
                 width="100%"
                 key="back"

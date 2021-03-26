@@ -1,54 +1,56 @@
-import AppleCard from "./images/AppleCard.jpg";
-import CareemCard from "./images/CareemCard.jpg";
-import CiscoCard from "./images/CiscoCard.jpg";
-import EbayCard from "./images/EbayCard.jpg";
-import FacebookCard from "./images/FacebookCard.jpg";
-import GoogleCard from "./images/GoogleCard.jpg";
-import IntelCard from "./images/IntelCard.jpg";
-import PaypalCard from "./images/PaypalCard.jpg";
-import TwitterCard from "./images/TwitterCard.jpg";
-import UberCard from "./images/UberCard.jpg";
+
+// Jurassic Card Images
+import Barbasol from "./images/Barbasol.jpg";
+import Brach from "./images/Brach.jpg";
+import Dilph from "./images/Dilophosaurus.jpg";
+import Grant from "./images/Grant.jfif";
+import Ingen from "./images/Ingen.png";
+import JP from "./images/JP.jpg";
+import Muldoon from "./images/Muldoon.png";
+import Raptor from "./images/Raptor.jfif";
+import Sattler from "./images/Sattler.jfif";
+import Rex from "./images/Trex.jfif";
 
 const cards = [
   {
     id: 1,
-    front: AppleCard
+    front: Barbasol
   },
   {
     id: 2,
-    front: CareemCard
+    front: Brach
   },
   {
     id: 3,
-    front: CiscoCard
+    front: Dilph
   },
   {
     id: 4,
-    front: EbayCard
+    front: Grant
   },
   {
     id: 5,
-    front: FacebookCard
+    front: Ingen
   },
   {
     id: 6,
-    front: GoogleCard
+    front: JP
   },
   {
     id: 7,
-    front: IntelCard
+    front: Raptor
   },
   {
     id: 8,
-    front: PaypalCard
+    front: Sattler
   },
   {
     id: 9,
-    front: TwitterCard
+    front: Rex
   },
   {
     id: 10,
-    front: UberCard
+    front: Muldoon
   }
 ];
 
